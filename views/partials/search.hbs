@@ -1,0 +1,14 @@
+<div>
+  <div class="container">
+    <h1>Analyze {{title}} comments</h1>
+    <br>
+    <div class="search-container">
+      <form action="./analyse" method="post">
+      <i id="search-btn" class="fa fa-search fa-2x" aria-hidden="true"></i>
+      <input type="text" id="search" placeholder="" autocomplete="off" name="link" />
+      <input type="hidden" name="platform" value={{title}}>
+      </form>
+    </div>
+  </div>
+  <script src="assets/js/search.js"></script>
+</div>

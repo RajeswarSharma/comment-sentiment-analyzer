@@ -2,6 +2,6 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  res.send("youtube");
+  res.render("link_form", { title: "Youtube" });
 });
 module.exports = router;
