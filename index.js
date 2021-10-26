@@ -1,8 +1,6 @@
 const express = require("express");
 const path = require("path");
-const facebook = require("./routes/facebook");
 const youtube = require("./routes/youtube");
-const insta = require("./routes/insta");
 const analyse  = require("./routes/analyse");
 const app = express();
 const PORT = 3000;
@@ -19,7 +17,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/",(req,res)=>{
     res.render("main");
 });
-app.use("/facebook",facebook);
+
 app.use("/youtube",youtube);
-app.use("/insta", insta);
 app.use("/analyse",analyse);
