@@ -1,13 +1,19 @@
 const url = require("url");
 const request = require("request");
+const axios = require("axios");
 
-const sender = async (options, res) => {
-  await request(options, res).then(function (parsedBody) {
-    console.log(parsedBody);
-    res.send(parsedBody);
-  });
+const sender = (res,comments) => {
+  axios
+    .post("http://192.168.1.4:5000/predict",comments)
+    .then((data) => {
+      console.log("recived data");
+      console.log(data.data);
+      res.json({ data: data.data });
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 };
-
 function parseUrl(recivedUrl) {
   const url_parts = url.parse(recivedUrl, true);
   const fixedUrl = JSON.parse(JSON.stringify(url_parts));
@@ -30,13 +36,6 @@ exports.genUrl = async (req, res) => {
   await request(APIURLRaw, async (err, response, body) => {
     const comments = JSON.parse(body);
     const processedComments = getComments(comments.items);
-    //res.json(processedComments);
-    const options = {
-      method: "GET",
-      uri: "http://192.168.1.4:5000/predict",
-      body: processedComments,
-      json: true,
-    };
-    await sender(options, res);
+    sender(res,processedComments);
   });
 };
