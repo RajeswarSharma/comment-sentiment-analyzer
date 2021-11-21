@@ -47,7 +47,17 @@ def predict():
     res = result[1:, 0]
 
     output = np.array(list(map(helpers.mapper, res)))
-    return jsonify(list(output))
+    number_list = np.array(output)
+    (unique, counts) = np.unique(number_list, return_counts=True)
+    
+    response = {
+        "total":len(output),
+        "sentiments":unique.tolist(),
+        "counts":counts.tolist()
+    }
+    print(response)
+    response_json = json.dumps(response)
+    return response_json
 
 
 if __name__ == '__main__':

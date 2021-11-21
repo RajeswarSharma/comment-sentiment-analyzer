@@ -1,0 +1,18 @@
+  <link rel="stylesheet" href="/assets/css/guage.css" />
+<div style="margin-top: 50px; margin-bottom:50px;" id="tools">
+ 
+  <script
+    type="text/javascript"
+    src="assets/js/guage/example/highlight.pack.js"
+  > </script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <div id="positive" class="gauge-container two"></div>
+  <script src="assets/js/guage/dist/gauge.min.js"></script>
+  <script>
+    Gauge( document.getElementById("positive"), { min: 0, max: 100,
+     dialStartAngle: 180, dialEndAngle: 0, value: {{val}}, viewBox: "0 0 100 57",
+    color: function(value) { if(value < 20) { return "#ff2a00"; }else if(value <
+    40) { return "#ffc800"; }else if(value < 60) { return "#99ff00"; }else {
+    return "#0dff00"; } } } );
+  </script>
+</div>

@@ -20,3 +20,6 @@ app.get("/",(req,res)=>{
 
 app.use("/youtube",youtube);
 app.use("/analyse",analyse);
+app.get("/test",(req,res)=>{
+  res.render("result")
+})

@@ -2,13 +2,17 @@ const url = require("url");
 const request = require("request");
 const axios = require("axios");
 
-const sender = (res,comments) => {
+const sender = (res, comments) => {
   axios
-    .post("http://192.168.1.4:5000/predict",comments)
+    .post("http://192.168.1.4:5000/predict", comments)
     .then((data) => {
       console.log("recived data");
       console.log(data.data);
-      res.json({ data: data.data });
+      const centNegative = (data.data.counts[0] / data.data.total)*100;
+      const centNeutral = (data.data.counts[1] / data.data.total)*100;
+      const centPositive = (data.data.counts[2] / data.data.total)*100;
+      res.render("result", {centPositive,centNegative,centNeutral});
+      //res.json({ data: data.data });
     })
     .catch((err) => {
       console.log(err.message);
@@ -36,6 +40,6 @@ exports.genUrl = async (req, res) => {
   await request(APIURLRaw, async (err, response, body) => {
     const comments = JSON.parse(body);
     const processedComments = getComments(comments.items);
-    sender(res,processedComments);
+    sender(res, processedComments);
   });
 };
