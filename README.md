@@ -23,8 +23,6 @@ Sentiment analyzer is being trained using 1000 positive-labeled and another 1000
 - gensim==3.4.0
 - Flask==1.0.2 (For web endpoint only)
 - nltk==3.2.5
-- MongoDB
-- pymongo==3.6.1
 - google_api_python_client==1.6.7
 
 ## Usage
@@ -65,7 +63,7 @@ python3 websentiment.py
 ```
 Follow your server's IP address followd by the port number showed on terminal and submit your text. Example:
 ```bash
-http://100.101.102.103:5000/?text=أنا مسرور جداً
+local server used : 3000
 ```
 Example Respone:
 ```bash
