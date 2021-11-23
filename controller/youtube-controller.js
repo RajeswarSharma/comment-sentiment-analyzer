@@ -4,7 +4,7 @@ const axios = require("axios");
 
 const sender = (res, comments) => {
   axios
-    .post("http://192.168.1.4:5000/predict", comments)
+    .post("http://192.168.1.5:5000/predict", comments)
     .then((data) => {
       console.log("recived data");
       console.log(data.data);
