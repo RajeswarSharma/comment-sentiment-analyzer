@@ -7,6 +7,7 @@ Youtube Comments Analyzer is a Python scripted tool to collect and analyze Youtu
 
 Sentiment analyzer is being trained using 1000 positive-labeled and another 1000 negative-labeled tweets with accuracy of ~88% based on 80% training and 20% test sets. Accuracy may found lower with text and comments analysis as a result of dialect phrases.
 
+The technology of sentiment analysis is a part of artificial intelligence, and its research is very meaningful for obtaining the sentiment trend of the comments. 
 ## Table of contents
 
 - [Installation](#installation)
